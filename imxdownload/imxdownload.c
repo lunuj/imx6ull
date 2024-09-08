@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     FILE *file = NULL;
     char file_name[64] = {0};
     char device_name[64] = {0};
-    char download_file_name[32] = {0};
+    char download_file_name[64 + 9] = {0};
     int file_size = 0;
     int write_bytes = 0;
     int ddr_type = ddr_512; // default
@@ -96,7 +96,10 @@ int main(int argc, char const *argv[])
     }
     memset(sheel_cmd_buf, 0, SHELL_CMD_SIZE);
 
-    sprintf(download_file_name, "%s_load.imx", strtok(file_name, "."));
+    char* pos=strstr(file_name,".bin");
+    *pos ='\0';
+
+    sprintf(download_file_name, "%s_load.imx", file_name);
     printf("delete old %s\n", download_file_name);
 
     memset(sheel_cmd_buf, 0, SHELL_CMD_SIZE);
