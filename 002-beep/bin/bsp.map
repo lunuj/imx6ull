@@ -1,0 +1,116 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000087800000                . = 0x87800000
+
+.text           0x0000000087800000      0x3c0
+ build/project/src/start.o()
+ .text          0x0000000087800000       0x1c build/project/src/start.o
+                0x0000000087800000                _start
+ .data          0x000000008780001c        0x0 build/project/src/start.o
+ .bss           0x000000008780001c        0x0 build/project/src/start.o
+ .ARM.attributes
+                0x000000008780001c       0x1d build/project/src/start.o
+ .iplt          0x0000000087800039        0x0 build/project/src/start.o
+ .rel.iplt      0x0000000087800039        0x0 build/project/src/start.o
+ .igot.plt      0x0000000087800039        0x0 build/project/src/start.o
+ *(.text)
+ *fill*         0x0000000087800039        0x1 
+ .text          0x000000008780003a      0x126 build/lib/bsp/src/bsp_beep.o
+                0x000000008780009e                beep_init
+                0x0000000087800114                beep_switch
+ .text          0x0000000087800160       0x72 build/lib/bsp/src/bsp_clk.o
+                0x0000000087800160                clk_enable
+ .text          0x00000000878001d2       0x48 build/lib/bsp/src/bsp_delay.o
+                0x00000000878001d2                delay_short
+                0x00000000878001f4                delay
+ .text          0x000000008780021a      0x162 build/lib/bsp/src/bsp_led.o
+                0x000000008780027e                led_init
+                0x00000000878002d4                led_on
+                0x00000000878002fa                led_off
+                0x0000000087800320                led_switch
+ .text          0x000000008780037c       0x3a build/project/src/main.o
+                0x000000008780037c                main
+ *fill*         0x00000000878003b6        0x2 
+ .text.__stub   0x00000000878003b8        0x8 linker stubs
+
+.glue_7         0x00000000878003c0        0x0
+ .glue_7        0x00000000878003c0        0x0 linker stubs
+
+.glue_7t        0x00000000878003c0        0x0
+ .glue_7t       0x00000000878003c0        0x0 linker stubs
+
+.vfp11_veneer   0x00000000878003c0        0x0
+ .vfp11_veneer  0x00000000878003c0        0x0 linker stubs
+
+.v4_bx          0x00000000878003c0        0x0
+ .v4_bx         0x00000000878003c0        0x0 linker stubs
+
+.rodata
+ *(.rodata*)
+
+.data           0x00000000878003c0        0x0
+ *(.data)
+ .data          0x00000000878003c0        0x0 build/lib/bsp/src/bsp_beep.o
+ .data          0x00000000878003c0        0x0 build/lib/bsp/src/bsp_clk.o
+ .data          0x00000000878003c0        0x0 build/lib/bsp/src/bsp_delay.o
+ .data          0x00000000878003c0        0x0 build/lib/bsp/src/bsp_led.o
+ .data          0x00000000878003c0        0x0 build/project/src/main.o
+                0x00000000878003c0                __bss_start = .
+
+.bss            0x00000000878003c0        0x0
+ *(.bss)
+ .bss           0x00000000878003c0        0x0 build/lib/bsp/src/bsp_beep.o
+ .bss           0x00000000878003c0        0x0 build/lib/bsp/src/bsp_clk.o
+ .bss           0x00000000878003c0        0x0 build/lib/bsp/src/bsp_delay.o
+ .bss           0x00000000878003c0        0x0 build/lib/bsp/src/bsp_led.o
+ .bss           0x00000000878003c0        0x0 build/project/src/main.o
+ *(COMMON)
+                0x00000000878003c0                __bss_end = .
+LOAD build/project/src/start.o
+LOAD build/lib/bsp/src/bsp_beep.o
+LOAD build/lib/bsp/src/bsp_clk.o
+LOAD build/lib/bsp/src/bsp_delay.o
+LOAD build/lib/bsp/src/bsp_led.o
+LOAD build/project/src/main.o
+OUTPUT(bin/bsp.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x2b
+ .comment       0x0000000000000000       0x2b build/lib/bsp/src/bsp_beep.o
+                                         0x2c (size before relaxing)
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_clk.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_delay.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_led.o
+ .comment       0x000000000000002b       0x2c build/project/src/main.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_beep.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_clk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_delay.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_led.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/project/src/main.o
+
+.ARM.attributes
+                0x0000000000000000       0x2f
+ .ARM.attributes
+                0x0000000000000000       0x33 build/lib/bsp/src/bsp_beep.o
+ .ARM.attributes
+                0x0000000000000033       0x33 build/lib/bsp/src/bsp_clk.o
+ .ARM.attributes
+                0x0000000000000066       0x33 build/lib/bsp/src/bsp_delay.o
+ .ARM.attributes
+                0x0000000000000099       0x33 build/lib/bsp/src/bsp_led.o
+ .ARM.attributes
+                0x00000000000000cc       0x33 build/project/src/main.o
