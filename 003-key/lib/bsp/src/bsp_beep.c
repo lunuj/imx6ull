@@ -1,7 +1,7 @@
 // SNVS_TAMPER1复用为GPIO5_IO1
 
 #include "bsp_beep.h"
-
+#include "bsp_gpio.h"
 /**
  * @brief 蜂鸣器初始化
  * @retval 无
@@ -16,6 +16,12 @@ void beep_init(void)
     GPIO5->GDIR |= (1 << 1);
     // 输出高电平，关闭蜂鸣器
     GPIO5->DR |= (1 << 1);
+    gpio_pin_config_t gpio_config;
+
+    gpio_config.direction = kGPIO_DigitalOutput;
+    gpio_config.outputLogic = 1U;
+
+    gpio_init(GPIO5, 1, &gpio_config);
 }
 
 /**
@@ -28,10 +34,10 @@ void beep_switch(int status)
 {
     if (status == ON)
     { // IO设置为0
-        GPIO5->DR &= ~(1 << 1);
+        gpio_pinwrite(GPIO5, 1, 0);
     }
     else
     { // IO设置为1
-        GPIO5->DR |= (1 << 1);
+        gpio_pinwrite(GPIO5, 1, 1);
     }
 }

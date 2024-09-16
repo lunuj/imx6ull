@@ -10,7 +10,7 @@
  */
 void gpio_init(GPIO_Type* base, int pin, gpio_pin_config_t* config)
 {
-    if (config->direction == kGPIO_DigtalInput)
+    if (config->direction == kGPIO_DigitalInput)
     {
         base->GDIR &= ~(1 << pin);
     }
@@ -35,9 +35,9 @@ int gpio_pinread(GPIO_Type* base, int pin)
 /**
  * @brief  更改GPIO引脚输出电平
  * @param  base 指向GPIO基址的指针
- * @param  pin
- * @param  value
- * @retval 
+ * @param  pin  输出pin脚
+ * @param  value    输出电平
+ * @retval 无
  * @note 
  */
 void gpio_pinwrite(GPIO_Type* base, int pin, int value)

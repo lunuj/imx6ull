@@ -11,7 +11,7 @@ void key_init(void){
     IOMUXC_SetPinMux(IOMUXC_UART1_CTS_B_GPIO1_IO18, 0);
     IOMUXC_SetPinConfig(IOMUXC_UART1_CTS_B_GPIO1_IO18, 0xF080);
     gpio_pin_config_t key_config;
-    key_config.direction = kGPIO_DigtalInput;
+    key_config.direction = kGPIO_DigitalInput;
     gpio_init(GPIO1, 18, &key_config);
 }
 

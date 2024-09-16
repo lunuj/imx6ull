@@ -1,4 +1,5 @@
 #include "bsp_led.h"
+#include "bsp_gpio.h"
 
 /*初始化LED*/
 void led_init(void)
@@ -8,21 +9,26 @@ void led_init(void)
     IOMUXC_SetPinMux(IOMUXC_GPIO1_IO03_GPIO1_IO03,0);
     IOMUXC_SetPinConfig(IOMUXC_GPIO1_IO03_GPIO1_IO03,0x10B0);
     // GPIO1方向寄存器，
-    GPIO1->GDIR = 0x8;
+    gpio_pin_config_t gpio_config;
+
+    gpio_config.direction = kGPIO_DigitalOutput;
+    gpio_config.outputLogic = 0U;
+
+    gpio_init(GPIO1,3,&gpio_config);
 }
 
 
 // 点亮LED
 void led_on(void)
 {
-    GPIO1->DR &= ~(1<<3); //bit3清零
+    gpio_pinwrite(GPIO1,3,0U);
 }
 
 
 // 关闭LED
 void led_off(void)
 {
-    GPIO1->DR |=(1<<3);  //bit3置一
+    gpio_pinwrite(GPIO1,3,1U);
 }
 
 
@@ -32,9 +38,9 @@ void led_switch(int led, int status)
     {
         case LED0:
             if(status == ON)
-                GPIO1->DR &= ~(1<<3);    /* 打开LED0 */
+                led_on();
             else if(status == OFF)
-                GPIO1->DR |= (1<<3);    /* 关闭LED0 */
+                led_off();
             break;
     }
 }

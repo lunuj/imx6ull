@@ -6,8 +6,8 @@
 /*枚举类型描述GPIO方向*/
 typedef enum _gpio_pin_direction
 {
-    kGPIO_DigtalInput = 0U,
-    kGPIO_DigtalOutput = 1U,
+    kGPIO_DigitalInput = 0U,
+    kGPIO_DigitalOutput = 1U,
 }_gpio_pin_direction_t;
 
 typedef struct gpio_pin_config
