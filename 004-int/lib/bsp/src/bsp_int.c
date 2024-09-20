@@ -35,6 +35,11 @@ void system_irqtable_init(void)
     }
 }
 
+FORCEDINLINE __STATIC_INLINE uint32_t __get_CBAR(void)
+{
+  return __MRC(15, 4, 15, 0, 0);
+}
+
 /**
  * @brief  初始化GIC寄存器
  * @retval 无
