@@ -38,9 +38,8 @@ Linker script and memory map
                 0x00000000878005b4                default_irqhandler
                 0x00000000878005c0                system_irqtable_init
                 0x0000000087800620                GIC_Init
-                0x000000008780062e                __set_VBAR
-                0x000000008780063c                int_init
-                0x0000000087800656                system_register_irqHandler
+                0x000000008780062e                int_init
+                0x0000000087800654                system_register_irqHandler
                 0x0000000087800690                system_irqhandler
  .text          0x0000000087800700      0x130 build/lib/bsp/src/bsp_key.o
                 0x0000000087800764                key_init

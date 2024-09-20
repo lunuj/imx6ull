@@ -601,51 +601,50 @@ Disassembly of section .text:
 87800628:	f85d 7b04 	ldr.w	r7, [sp], #4
 8780062c:	4770      	bx	lr
 
-8780062e <__set_VBAR>:
-8780062e:	b480      	push	{r7}
-87800630:	af00      	add	r7, sp, #0
-87800632:	bf00      	nop
-87800634:	46bd      	mov	sp, r7
-87800636:	f85d 7b04 	ldr.w	r7, [sp], #4
-8780063a:	4770      	bx	lr
+8780062e <int_init>:
+8780062e:	b580      	push	{r7, lr}
+87800630:	b082      	sub	sp, #8
+87800632:	af00      	add	r7, sp, #0
+87800634:	f7ff fff4 	bl	87800620 <GIC_Init>
+87800638:	f7ff ffc2 	bl	878005c0 <system_irqtable_init>
+8780063c:	2300      	movs	r3, #0
+8780063e:	f2c8 7380 	movt	r3, #34688	; 0x8780
+87800642:	607b      	str	r3, [r7, #4]
+87800644:	687b      	ldr	r3, [r7, #4]
+87800646:	ee0c 3f10 	mcr	15, 0, r3, cr12, cr0, {0}
+8780064a:	bf00      	nop
+8780064c:	bf00      	nop
+8780064e:	3708      	adds	r7, #8
+87800650:	46bd      	mov	sp, r7
+87800652:	bd80      	pop	{r7, pc}
 
-8780063c <int_init>:
-8780063c:	b580      	push	{r7, lr}
-8780063e:	af00      	add	r7, sp, #0
-87800640:	f7ff ffee 	bl	87800620 <GIC_Init>
-87800644:	f7ff ffbc 	bl	878005c0 <system_irqtable_init>
-87800648:	2000      	movs	r0, #0
-8780064a:	f2c8 7080 	movt	r0, #34688	; 0x8780
-8780064e:	f7ff ffee 	bl	8780062e <__set_VBAR>
-87800652:	bf00      	nop
-87800654:	bd80      	pop	{r7, pc}
-
-87800656 <system_register_irqHandler>:
-87800656:	b480      	push	{r7}
-87800658:	b085      	sub	sp, #20
-8780065a:	af00      	add	r7, sp, #0
-8780065c:	60f8      	str	r0, [r7, #12]
-8780065e:	60b9      	str	r1, [r7, #8]
-87800660:	607a      	str	r2, [r7, #4]
-87800662:	4b09      	ldr	r3, [pc, #36]	; (87800688 <system_register_irqHandler+0x32>)
-87800664:	447b      	add	r3, pc
-87800666:	68fa      	ldr	r2, [r7, #12]
-87800668:	68b9      	ldr	r1, [r7, #8]
-8780066a:	f843 1032 	str.w	r1, [r3, r2, lsl #3]
-8780066e:	4a07      	ldr	r2, [pc, #28]	; (8780068c <system_register_irqHandler+0x36>)
-87800670:	447a      	add	r2, pc
-87800672:	68fb      	ldr	r3, [r7, #12]
-87800674:	00db      	lsls	r3, r3, #3
-87800676:	4413      	add	r3, r2
-87800678:	687a      	ldr	r2, [r7, #4]
-8780067a:	605a      	str	r2, [r3, #4]
-8780067c:	bf00      	nop
-8780067e:	3714      	adds	r7, #20
-87800680:	46bd      	mov	sp, r7
-87800682:	f85d 7b04 	ldr.w	r7, [sp], #4
-87800686:	4770      	bx	lr
-87800688:	00000390 	muleq	r0, r0, r3
-8780068c:	00000384 	andeq	r0, r0, r4, lsl #7
+87800654 <system_register_irqHandler>:
+87800654:	b480      	push	{r7}
+87800656:	b085      	sub	sp, #20
+87800658:	af00      	add	r7, sp, #0
+8780065a:	60f8      	str	r0, [r7, #12]
+8780065c:	60b9      	str	r1, [r7, #8]
+8780065e:	607a      	str	r2, [r7, #4]
+87800660:	4b09      	ldr	r3, [pc, #36]	; (87800688 <system_register_irqHandler+0x34>)
+87800662:	447b      	add	r3, pc
+87800664:	68fa      	ldr	r2, [r7, #12]
+87800666:	68b9      	ldr	r1, [r7, #8]
+87800668:	f843 1032 	str.w	r1, [r3, r2, lsl #3]
+8780066c:	4a07      	ldr	r2, [pc, #28]	; (8780068c <system_register_irqHandler+0x38>)
+8780066e:	447a      	add	r2, pc
+87800670:	68fb      	ldr	r3, [r7, #12]
+87800672:	00db      	lsls	r3, r3, #3
+87800674:	4413      	add	r3, r2
+87800676:	687a      	ldr	r2, [r7, #4]
+87800678:	605a      	str	r2, [r3, #4]
+8780067a:	bf00      	nop
+8780067c:	3714      	adds	r7, #20
+8780067e:	46bd      	mov	sp, r7
+87800680:	f85d 7b04 	ldr.w	r7, [sp], #4
+87800684:	4770      	bx	lr
+87800686:	bf00      	nop
+87800688:	00000392 	muleq	r0, r2, r3
+8780068c:	00000386 	andeq	r0, r0, r6, lsl #7
 
 87800690 <system_irqhandler>:
 87800690:	b580      	push	{r7, lr}
