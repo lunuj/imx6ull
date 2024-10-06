@@ -116,4 +116,8 @@ void Imx6ull_clkInit(void)
     CCM->CSCMR1 &= ~(1 << 6); // CSCMR1[PERIPH_CLK_SEL](bit[6])置零，选择ipg时钟源
     CCM->CSCMR1 &= ~(7 << 0); // CSCMR1[PERIPH_PODF](bit[5：0])设置为000，对应1分频
     /*-------------------------IPG设置完毕------------------------*/
+
+    //配置UART时钟为80MHz
+    CCM->CSCDR1 &= ~(1<<6);                         //此位为1使用24MHz晶振，为0使用80MHz晶振
+    CCM->CSCDR1 &= ~(7<<0);
 }

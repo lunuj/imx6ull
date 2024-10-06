@@ -23,7 +23,11 @@ void Uart_init(UART_Type * uart, uint32_t baud)
     /*配置UCR3*/
     uart->UCR3 |= (1<<2);                           //RXDMUXSEL=1
 
-    //波特率设置115200
+    uart->UFCR &= ~(7<<7);
+    uart->UFCR |= 5<<7;
+    //波特率设置115200、
+    // uart->UBIR = 71;
+    // uart->UBMR = 3124;
     Uart_setBaudrate(uart, baud, 80000000);
 }
 
@@ -53,6 +57,16 @@ uint8_t Uart_getChar(UART_Type * uart){
     while(((uart->USR2)&0x01) == 0);          //等待前一个接收流程完毕
     return uart->URXD;
 }
+
+void Uart_putString(UART_Type * uart, uint8_t * ptr, uint8_t len)
+{
+    for (uint8_t i = 0; i < len; i++)
+    {
+        Uart_putChar(uart, *(ptr+i));
+    }
+}
+
+
 /**
  * @brief                   设置比特率(官方代码)
  * @param base              UART结构特

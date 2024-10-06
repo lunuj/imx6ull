@@ -13,6 +13,7 @@
 #include "bsp_keyfilter.h"
 #include "bsp_gpt.h"
 #include "bsp_uart.h"
+#include "bsp_printf.h"
 
 void raise(int sig_nr);
 

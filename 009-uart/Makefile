@@ -12,7 +12,7 @@ LIBPATH            := -lgcc -L/usr/lib/gcc-cross/arm-linux-gnueabihf/11   #制�
 
 LDFILE			:= imx6ull.lds
 LDFLAGS += -Map=$(TARGET).map -T$(LDFILE)
-
+COMPILE_FLAG += -fno-builtin
 
 
 INCDIRS        	:= 	lib/imx6ull/inc		\
@@ -28,7 +28,7 @@ SRCDIRS         := 	lib/imx6ull/src		\
 DOWNLOADTOOL	:= ../imxdownload/imxdownload.out
 DOWNLOADTOOLSRC := ../imxdownload/imxdownload.c
 
-DEVSD			:= /dev/sdc
+DEVSD			:= /dev/sdb
 # 利用patsubst进行字符串修改，在INCLUDIRS每个路径前加-I \
 $(patsubst <pattern>,<replacement>,<text>) \
 名称:模式字符串替换函数——patsubst。\
@@ -79,7 +79,7 @@ $(SOBJS):		$(OUTDIR)%.o:		%.s
 	$(CC) -Wall -nostdlib -c ${LEVEL} $(INCLUDE) -o $@ $<
 
 $(COBJS):		$(OUTDIR)%.o:		%.c
-	$(CC) -Wall -nostdlib -c ${LEVEL}  $(INCLUDE) -o $@ $<
+	$(CC) -Wall -nostdlib ${COMPILE_FLAG} -c ${LEVEL}  $(INCLUDE) -o $@ $<
 
 $(OUTSRCDIRS):
 	mkdir -p $@
