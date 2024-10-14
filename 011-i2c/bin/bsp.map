@@ -1,0 +1,366 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+                              build/lib/bsp/src/bsp_uart.o (__aeabi_uidiv)
+/usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+                              build/lib/bsp/src/bsp_rtc.o (__aeabi_uldivmod)
+/usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+                              /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+/usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+                              /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000087800000                . = 0x87800000
+
+.text           0x0000000087800000     0x2e48
+ build/project/src/start.o()
+ .text          0x0000000087800000      0x154 build/project/src/start.o
+                0x0000000087800000                _start
+ .data          0x0000000087800154        0x0 build/project/src/start.o
+ .bss           0x0000000087800154        0x0 build/project/src/start.o
+ .ARM.attributes
+                0x0000000087800154       0x1d build/project/src/start.o
+ .iplt          0x0000000087800171        0x0 build/project/src/start.o
+ .rel.iplt      0x0000000087800171        0x0 build/project/src/start.o
+ .igot.plt      0x0000000087800171        0x0 build/project/src/start.o
+ *(.text)
+ *fill*         0x0000000087800171        0x1 
+ .text          0x0000000087800172      0x12e build/lib/bsp/src/bsp_beep.o
+                0x00000000878001d6                Beep_init
+                0x0000000087800268                Beep_switch
+ .text          0x00000000878002a0      0x278 build/lib/bsp/src/bsp_clk.o
+                0x00000000878002a0                Clk_enable
+                0x0000000087800312                Imx6ull_clkInit
+ .text          0x0000000087800518      0x106 build/lib/bsp/src/bsp_delay.o
+                0x0000000087800518                Delay_init
+                0x0000000087800548                Delay_us
+                0x00000000878005a8                Delay_ms
+                0x00000000878005fa                Delay_s
+ *fill*         0x000000008780061e        0x2 
+ .text          0x0000000087800620      0x194 build/lib/bsp/src/bsp_epit.o
+                0x0000000087800620                Epit_init
+                0x0000000087800682                Epit_setPeriod
+                0x000000008780069e                Epit_enableIrq
+                0x00000000878006be                Epit_disableIrq
+                0x00000000878006de                Epit_getInterruptStatus
+                0x00000000878006f6                Epit_clearInterruptStatus
+                0x0000000087800716                Epit_startCounter
+                0x0000000087800736                Epit_stopCounter
+                0x0000000087800756                epit_irqhandler
+ .text          0x00000000878007b4      0x18c build/lib/bsp/src/bsp_exti.o
+                0x0000000087800818                Exti_init
+                0x00000000878008cc                Gpio_io18_irqhandler
+ .text          0x0000000087800940      0x274 build/lib/bsp/src/bsp_gpio.o
+                0x0000000087800940                Gpio_init
+                0x00000000878009a2                Gpio_pinRead
+                0x00000000878009c6                Gpio_pinWrite
+                0x0000000087800a0c                Gpio_enableInterrupt
+                0x0000000087800a36                Gpio_disableInterrupt
+                0x0000000087800a62                Gpio_clearInterruptFlahs
+                0x0000000087800a8c                Gpio_configInterrruptType
+ .text          0x0000000087800bb4      0x1f6 build/lib/bsp/src/bsp_gpt.o
+                0x0000000087800bb4                Gpt_init
+                0x0000000087800c06                Gpt_reset
+                0x0000000087800c36                Gpt_setMode
+                0x0000000087800c5a                Gpt_setDiv
+                0x0000000087800c7c                Gpt_setCmp0
+                0x0000000087800c98                Gpt_setCmp1
+                0x0000000087800cb4                Gpt_seCmp2
+                0x0000000087800cd0                Gpt_enableIrq
+                0x0000000087800cf2                Gpt_disableIrq
+                0x0000000087800d16                Gpt_getInterruptStatus
+                0x0000000087800d30                Gpt_clearInterruptStatus
+                0x0000000087800d52                Gpt_startCounter
+                0x0000000087800d72                Gpt_stopCounter
+                0x0000000087800d92                Gpt_readCounter
+ .text          0x0000000087800daa      0x2f0 build/lib/bsp/src/bsp_i2c.o
+                0x0000000087800daa                I2c_init
+                0x0000000087800de4                I2C_isBusBusy
+                0x0000000087800e06                I2C_sendStart
+                0x0000000087800e36                I2C_sendStop
+                0x0000000087800e7c                I2C_sendRestart
+                0x0000000087800eac                I2C_getStatus
+                0x0000000087800f16                I2C_clearInterruptStatus
+                0x0000000087800f3a                I2C_getInterruptStatus
+                0x0000000087800f5c                I2C_write
+                0x0000000087800fe0                I2C_read
+ *fill*         0x000000008780109a        0x2 
+ .text          0x000000008780109c      0x1b0 build/lib/bsp/src/bsp_int.o
+                0x000000008780109c                default_irqhandler
+                0x00000000878010a8                system_irqtable_init
+                0x0000000087801108                int_init
+                0x00000000878011a0                system_register_irqHandler
+                0x00000000878011dc                system_irqhandler
+ .text          0x000000008780124c      0x17c build/lib/bsp/src/bsp_key.o
+                0x00000000878012b0                Key_init
+                0x0000000087801316                Key_getValue
+                0x0000000087801388                Key_read
+ .text          0x00000000878013c8      0x250 build/lib/bsp/src/bsp_keyfilter.o
+                0x000000008780142c                Key_initFilter
+ .text          0x0000000087801618      0x12a build/lib/bsp/src/bsp_led.o
+                0x000000008780167c                Led_init
+                0x00000000878016e2                Led_on
+                0x00000000878016fa                Led_off
+                0x0000000087801712                Led_switch
+ *fill*         0x0000000087801742        0x2 
+ .text          0x0000000087801744      0x398 build/lib/bsp/src/bsp_printf.o
+                0x0000000087801744                printf
+ .text          0x0000000087801adc      0x550 build/lib/bsp/src/bsp_rtc.o
+                0x0000000087801adc                Rtc_init
+                0x0000000087801b38                Rtc_enable
+                0x0000000087801b74                Rtc_disable
+                0x0000000087801bb0                Rtc_getSeconds
+                0x0000000087801bf8                Rtc_setSeconds
+                0x0000000087801c3c                Rtc_setDate
+                0x0000000087801cb6                Rtc_getDate
+                0x0000000087801ce4                Rtc_isLeapyear
+                0x0000000087801d5a                Rtc_convertSeconds_to_Datetime
+                0x0000000087801f4c                Rtc_coverDate_to_Seconds
+ .text          0x000000008780202c      0x524 build/lib/bsp/src/bsp_uart.o
+                0x000000008780202c                Uart_init
+                0x00000000878020d2                Uart_enable
+                0x00000000878020f6                Uart_disable
+                0x000000008780211a                Uart_softReset
+                0x0000000087802150                Uart_putChar
+                0x000000008780217e                Uart_getChar
+                0x00000000878021a8                Uart_putString
+                0x00000000878021e4                Uart_setBaudrate
+ .text          0x0000000087802550      0x32c build/lib/ic/src/ic_ap3216c.o
+                0x00000000878025b4                Ap3216c_init
+                0x00000000878026a0                Ap3216c_writeChar
+                0x00000000878026fa                Ap3216c_readChar
+                0x0000000087802760                Ap3216c_readData
+                0x00000000878027d8                Ap3216c_dataAnaylsis
+ .text          0x000000008780287c      0x200 build/project/src/main.o
+                0x00000000878028e0                Device_init
+                0x00000000878029b0                main
+                0x0000000087802a70                raise
+ *fill*         0x0000000087802a7c        0x4 
+ .text          0x0000000087802a80      0x278 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+                0x0000000087802a80                __udivsi3
+                0x0000000087802a80                __aeabi_uidiv
+                0x0000000087802cdc                __aeabi_uidivmod
+ .text          0x0000000087802cf8       0x30 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000087802cf8                __aeabi_uldivmod
+ .text          0x0000000087802d28        0xc /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+                0x0000000087802d28                __aeabi_ldiv0
+                0x0000000087802d28                __aeabi_idiv0
+ .text          0x0000000087802d34      0x108 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+                0x0000000087802d34                __udivmoddi4
+ *fill*         0x0000000087802e3c        0x4 
+ .text.__stub   0x0000000087802e40        0x8 linker stubs
+
+.glue_7         0x0000000087802e48        0x0
+ .glue_7        0x0000000087802e48        0x0 linker stubs
+
+.glue_7t        0x0000000087802e48        0x0
+ .glue_7t       0x0000000087802e48        0x0 linker stubs
+
+.vfp11_veneer   0x0000000087802e48        0x0
+ .vfp11_veneer  0x0000000087802e48        0x0 linker stubs
+
+.v4_bx          0x0000000087802e48        0x0
+ .v4_bx         0x0000000087802e48        0x0 linker stubs
+
+.rodata         0x0000000087802e48       0x8a
+ *(.rodata*)
+ .rodata        0x0000000087802e48       0x2a build/lib/bsp/src/bsp_rtc.o
+ *fill*         0x0000000087802e72        0x2 
+ .rodata        0x0000000087802e74       0x20 build/lib/ic/src/ic_ap3216c.o
+ .rodata        0x0000000087802e94       0x3e build/project/src/main.o
+
+.ARM.extab      0x0000000087802ed2        0x0
+ .ARM.extab     0x0000000087802ed2        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+
+.ARM.exidx      0x0000000087802ed4        0x8
+ .ARM.exidx     0x0000000087802ed4        0x8 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+
+.data           0x0000000087802edc        0x2
+ *(.data)
+ .data          0x0000000087802edc        0x0 build/lib/bsp/src/bsp_beep.o
+ .data          0x0000000087802edc        0x0 build/lib/bsp/src/bsp_clk.o
+ .data          0x0000000087802edc        0x0 build/lib/bsp/src/bsp_delay.o
+ .data          0x0000000087802edc        0x0 build/lib/bsp/src/bsp_epit.o
+ .data          0x0000000087802edc        0x1 build/lib/bsp/src/bsp_exti.o
+ .data          0x0000000087802edd        0x0 build/lib/bsp/src/bsp_gpio.o
+ .data          0x0000000087802edd        0x0 build/lib/bsp/src/bsp_gpt.o
+ .data          0x0000000087802edd        0x0 build/lib/bsp/src/bsp_i2c.o
+ .data          0x0000000087802edd        0x0 build/lib/bsp/src/bsp_int.o
+ .data          0x0000000087802edd        0x1 build/lib/bsp/src/bsp_key.o
+ .data          0x0000000087802ede        0x0 build/lib/bsp/src/bsp_keyfilter.o
+ .data          0x0000000087802ede        0x0 build/lib/bsp/src/bsp_led.o
+ .data          0x0000000087802ede        0x0 build/lib/bsp/src/bsp_printf.o
+ .data          0x0000000087802ede        0x0 build/lib/bsp/src/bsp_rtc.o
+ .data          0x0000000087802ede        0x0 build/lib/bsp/src/bsp_uart.o
+ .data          0x0000000087802ede        0x0 build/lib/ic/src/ic_ap3216c.o
+ .data          0x0000000087802ede        0x0 build/project/src/main.o
+ .data          0x0000000087802ede        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+ .data          0x0000000087802ede        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+ .data          0x0000000087802ede        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+ .data          0x0000000087802ede        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+                0x0000000087802ede                __bss_start = .
+
+.bss            0x0000000087802ee0      0x519
+ *(.bss)
+ .bss           0x0000000087802ee0        0x0 build/lib/bsp/src/bsp_beep.o
+ .bss           0x0000000087802ee0        0x0 build/lib/bsp/src/bsp_clk.o
+ .bss           0x0000000087802ee0        0x0 build/lib/bsp/src/bsp_delay.o
+ .bss           0x0000000087802ee0        0x1 build/lib/bsp/src/bsp_epit.o
+ .bss           0x0000000087802ee1        0x0 build/lib/bsp/src/bsp_exti.o
+ .bss           0x0000000087802ee1        0x0 build/lib/bsp/src/bsp_gpio.o
+ .bss           0x0000000087802ee1        0x0 build/lib/bsp/src/bsp_gpt.o
+ .bss           0x0000000087802ee1        0x0 build/lib/bsp/src/bsp_i2c.o
+ *fill*         0x0000000087802ee1        0x3 
+ .bss           0x0000000087802ee4      0x504 build/lib/bsp/src/bsp_int.o
+ .bss           0x00000000878033e8        0x0 build/lib/bsp/src/bsp_key.o
+ .bss           0x00000000878033e8        0x3 build/lib/bsp/src/bsp_keyfilter.o
+ .bss           0x00000000878033eb        0x0 build/lib/bsp/src/bsp_led.o
+ .bss           0x00000000878033eb        0x0 build/lib/bsp/src/bsp_printf.o
+ *fill*         0x00000000878033eb        0x5 
+ .bss           0x00000000878033f0        0x8 build/lib/bsp/src/bsp_rtc.o
+ .bss           0x00000000878033f8        0x0 build/lib/bsp/src/bsp_uart.o
+ .bss           0x00000000878033f8        0x0 build/lib/ic/src/ic_ap3216c.o
+ .bss           0x00000000878033f8        0x1 build/project/src/main.o
+ .bss           0x00000000878033f9        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+ .bss           0x00000000878033f9        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000878033f9        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+ .bss           0x00000000878033f9        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+ *(COMMON)
+                0x00000000878033f9                __bss_end = .
+LOAD build/project/src/start.o
+LOAD build/lib/bsp/src/bsp_beep.o
+LOAD build/lib/bsp/src/bsp_clk.o
+LOAD build/lib/bsp/src/bsp_delay.o
+LOAD build/lib/bsp/src/bsp_epit.o
+LOAD build/lib/bsp/src/bsp_exti.o
+LOAD build/lib/bsp/src/bsp_gpio.o
+LOAD build/lib/bsp/src/bsp_gpt.o
+LOAD build/lib/bsp/src/bsp_i2c.o
+LOAD build/lib/bsp/src/bsp_int.o
+LOAD build/lib/bsp/src/bsp_key.o
+LOAD build/lib/bsp/src/bsp_keyfilter.o
+LOAD build/lib/bsp/src/bsp_led.o
+LOAD build/lib/bsp/src/bsp_printf.o
+LOAD build/lib/bsp/src/bsp_rtc.o
+LOAD build/lib/bsp/src/bsp_uart.o
+LOAD build/lib/ic/src/ic_ap3216c.o
+LOAD build/project/src/main.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a
+OUTPUT(bin/bsp.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x2b
+ .comment       0x0000000000000000       0x2b build/lib/bsp/src/bsp_beep.o
+                                         0x2c (size before relaxing)
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_clk.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_delay.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_epit.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_exti.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_gpio.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_gpt.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_i2c.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_int.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_key.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_keyfilter.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_led.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_printf.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_rtc.o
+ .comment       0x000000000000002b       0x2c build/lib/bsp/src/bsp_uart.o
+ .comment       0x000000000000002b       0x2c build/lib/ic/src/ic_ap3216c.o
+ .comment       0x000000000000002b       0x2c build/project/src/main.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_beep.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_clk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_delay.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_epit.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_exti.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_gpio.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_gpt.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_i2c.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_int.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_key.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_keyfilter.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_led.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_printf.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_rtc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/bsp/src/bsp_uart.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/lib/ic/src/ic_ap3216c.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/project/src/main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
+
+.ARM.attributes
+                0x0000000000000000       0x2f
+ .ARM.attributes
+                0x0000000000000000       0x33 build/lib/bsp/src/bsp_beep.o
+ .ARM.attributes
+                0x0000000000000033       0x33 build/lib/bsp/src/bsp_clk.o
+ .ARM.attributes
+                0x0000000000000066       0x33 build/lib/bsp/src/bsp_delay.o
+ .ARM.attributes
+                0x0000000000000099       0x33 build/lib/bsp/src/bsp_epit.o
+ .ARM.attributes
+                0x00000000000000cc       0x33 build/lib/bsp/src/bsp_exti.o
+ .ARM.attributes
+                0x00000000000000ff       0x33 build/lib/bsp/src/bsp_gpio.o
+ .ARM.attributes
+                0x0000000000000132       0x33 build/lib/bsp/src/bsp_gpt.o
+ .ARM.attributes
+                0x0000000000000165       0x33 build/lib/bsp/src/bsp_i2c.o
+ .ARM.attributes
+                0x0000000000000198       0x33 build/lib/bsp/src/bsp_int.o
+ .ARM.attributes
+                0x00000000000001cb       0x33 build/lib/bsp/src/bsp_key.o
+ .ARM.attributes
+                0x00000000000001fe       0x33 build/lib/bsp/src/bsp_keyfilter.o
+ .ARM.attributes
+                0x0000000000000231       0x33 build/lib/bsp/src/bsp_led.o
+ .ARM.attributes
+                0x0000000000000264       0x33 build/lib/bsp/src/bsp_printf.o
+ .ARM.attributes
+                0x0000000000000297       0x33 build/lib/bsp/src/bsp_rtc.o
+ .ARM.attributes
+                0x00000000000002ca       0x33 build/lib/bsp/src/bsp_uart.o
+ .ARM.attributes
+                0x00000000000002fd       0x33 build/lib/ic/src/ic_ap3216c.o
+ .ARM.attributes
+                0x0000000000000330       0x33 build/project/src/main.o
+ .ARM.attributes
+                0x0000000000000363       0x1f /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000382       0x1f /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000000000003a1       0x1f /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_dvmd_lnx.o)
+ .ARM.attributes
+                0x00000000000003c0       0x33 /usr/lib/gcc-cross/arm-linux-gnueabihf/11/libgcc.a(_udivmoddi4.o)
