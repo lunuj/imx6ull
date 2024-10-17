@@ -18,14 +18,10 @@
 #define AP3216C_PSDATAHIGH      0x0F
 
 void Ap3216c_init();
-
-void Ap3216c_writeChar(uint8_t reg, uint8_t data);
-
-void Ap3216c_readChar(uint8_t reg, uint8_t * data);
-
-void Ap3216c_readData(uint16_t reasult[3]);
-
+uint8_t Ap3216c_writeChar(uint8_t reg, uint8_t data);
+uint8_t Ap3216c_readChar(uint8_t reg, uint8_t * data);
 void Ap3216c_dataAnaylsis(uint16_t reasult[3], uint8_t data[6]);
+void Ap3216c_readData(uint16_t reasult[3]);
 
 #endif // IC_AP3216C_H
 

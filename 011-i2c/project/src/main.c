@@ -30,21 +30,22 @@ int main(void)
 
     static unsigned char status=OFF;
     struct rtc_datetime time;
-    uint8_t test = 0,rx = 0;
+    uint8_t data = 0;
+    uint16_t reasult[3];
     while(1)
     {
         status = !status;
         Rtc_getDate(&time);
+        printf("[MSG]: %d年%d月%d日%d时%d分%d秒\r\n", time.year, time.month, time.day, time.hour, time.minute, time.second);
 
-        // uint16_t data[3];
-        // Ap3216c_readData(data);
-        // printf("ir = %d als = %d ps = %d\r\n", data[0], data[1], data[2]);
-        Ap3216c_writeChar(0x00, test);
-        Ap3216c_readChar(0x00, &rx);
-        printf("rx = %d\r\ntest = %d\r\n", rx, test++);
-        printf("time %d年%d月%d日%d时%d分%d秒\r\n", time.year, time.month, time.day, time.hour, time.minute, time.second);
+        Ap3216c_readChar(0x00, &data);
+        printf("[INFO]: [REG 0X00] = %d\r\n", data);
+
+        Ap3216c_readData(reasult);
+        printf("[INFO]: 红外线强度(IR) = %d\r\n[INFO]: 光强度(ALS) = %d\r\n[INFO]: 接近距离(PS) = %d\r\n",reasult[0],reasult[1],reasult[2]);
+
         Led_switch(LED0, status);
-        Delay_us(GPT2, 500000);
+        Delay_us(GPT2, 1000000);
     }
     return 0;
 }

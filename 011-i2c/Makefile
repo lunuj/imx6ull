@@ -30,7 +30,7 @@ SRCDIRS         := 	lib/imx6ull/src		\
 DOWNLOADTOOL	:= ../imxdownload/imxdownload.out
 DOWNLOADTOOLSRC := ../imxdownload/imxdownload.c
 
-DEVSD			:= /dev/sdb
+DEVSD			:= /dev/sdc
 # 利用patsubst进行字符串修改，在INCLUDIRS每个路径前加-I \
 $(patsubst <pattern>,<replacement>,<text>) \
 名称:模式字符串替换函数——patsubst。\
